@@ -15,7 +15,7 @@ function cloneField() {
     // for each fields, clean
     fields.forEach(function(field) {
         // take the current field and clear
-        
+        field.value = ""
     })
 
     
