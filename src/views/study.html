@@ -68,49 +68,33 @@
         </header>    
 
         <main> <!-- conteudo principal da pagina-->
+            <!-- estrutura de repeticao nunjucks -->
+            {%for proffy in proffys %}
             <article  class="teacher-item">
                 <header>
                     <img 
-                        src="https://avatars1.githubusercontent.com/u/54358297?s=460&u=b1cee0114b18a3c9f904b21d1f972c4960c06bac&v=4" 
-                        alt="Gabriel Barros">
+                        src="{{proffy.avatar}}" 
+                        alt="{{proffy.name}}">
                     <div>
-                        <strong>Gabriel Barros</strong>
-                        <span>Química</span>
+                        <strong>{{proffy.name}}</strong>
+                        <span>{{proffy.subject}}</span>
                     </div>
                 </header>
             
-                <p>Entusiasta das melhores tecnologias de química avançada.<br><br>Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma sdas minhas explosões.</p>
+                <p>{{proffy.bio}}</p>
             
                 <footer>
-                    <p>Preço/hora<strong>R$ 20,00</strong>
+                    <p>Preço/hora<strong>R$ {{proffy.cost}}</strong>
                     </p>
-                    <button type="button">
+                    <a href="https://api.whatsapp.com/send?1=pt_BR&phone=+55{{proffy.whatsapp}}&text=Tenho interesse na aula de {{proffy.subject}} {{proffy.name}}" class="button" target="_blank">
                         <img src="/img/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
+                    </a>
                 </footer>
             </article>
 
-            <article  class="teacher-item">
-                <header>
-                    <img 
-                        src="https://avatars2.githubusercontent.com/u/2254731?s=460&amp;u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&amp;v=4" 
-                        alt="Diego Fernandes">
-                    <div>
-                        <strong>Diego Fernandes</strong>
-                        <span>Química</span>
-                    </div>
-                </header>
+            {%endfor%}
             
-                <p>Entusiasta das melhores tecnologias de química avançada.<br><br>Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma sdas minhas explosões.</p>
-            
-                <footer>
-                    <p>Preço/hora<strong>R$ 20,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/img/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
+
         </main>
     </div>
 
