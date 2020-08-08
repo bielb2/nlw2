@@ -1,3 +1,4 @@
+// database
 const proffys = [
     { 
     name: "Gabriel Barros", 
@@ -35,37 +36,87 @@ const proffys = [
     }
 ]
 
+const subjects = [    
+    "Artes",
+    "Biologia",
+    "Ciências",
+    "Educação física",
+    "Física",
+    "Geografia",
+    "História",
+    "Matemática",
+    "Português",
+    "Química",
+]
+
+const weekdays = [   
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",
+]
+
+// functions
+
+function getSubject(subjectNumber){
+    const position =  +subjectNumber -1
+    return subjects[position]
+}
+
 function pageLanding(req, res) {        
     return res.render("index.html")    
 }
 
 function pageStudy(req, res) {
-    return res.render("study.html", {proffys})
+    // req - https requisition send by form 
+    const filters = req.query    
+    return res.render("study.html", 
+    // send var from database to front-end
+    {proffys, filters, subjects, weekdays})
 }
 
 function pageGiveClasses(req, res) {
-    return res.render("give-classes.html")
+    const data = req.query
+
+    // transform object in array and use length
+    const isNotEmpty = Object.keys(data).length > 0
+    // if have data
+    
+    if (isNotEmpty ) {        
+
+        data.subject = getSubject(data.subject)
+        // add data in proffys
+        proffys.push(data)
+
+        return res.redirect("/study")
+    }   
+    // else, show the page
+
+    return res.render("give-classes.html", {subjects, weekdays})
 }
 
+// server
 const express = require('express')
 const server = express()
 
-
-// config nunjucks
+// config nunjucks (template engine)
 const nunjucks = require('nunjucks')
 nunjucks.configure('src/views', {
     express: server,
     noCache: true,
 })
 
-
+// server config
 server
 // config static archives (css, scripts, img)
 .use(express.static("public"))
-
 // aplication routes
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
+// server start
 .listen(5500)
 
