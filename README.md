@@ -18,7 +18,7 @@
 ## 🖥 Preview 
  
 <p align="center">
-  <img src="https://ik.imagekit.io/b0g9wlasxh/Proffy/nlw2/web_ufTX2SGgV.gif" width="675" >
+  <img src="public/img/web.gif" width="675" >
 </p 
 
 ---
