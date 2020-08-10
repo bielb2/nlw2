@@ -51,7 +51,7 @@ O projeto está desenvolvido utilizando as seguintes tecnologias:
 git clone https://github.com/bielb2/nlw2
 
 # Entrar no diretório
-cd proffy-discovery
+cd nlw2
 
 # Baixar as dependências
 npm i
