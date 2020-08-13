@@ -12,6 +12,7 @@
 - [Tecnologias utilizadas](#-Tecnologias-utilizadas)
 - [Como executar o projeto](#-Como-executar-o-projeto)
 - [Preview](#-Preview)
+- [Licença](#-licença)
 
 ---
 
@@ -63,4 +64,9 @@ npm run dev
 Feito isso, abra o seu navegador e acesse `http://localhost:5500/`
 
 ---
+
+## 📕 Licença
+
+Todos os arquivos incluídos aqui, incluindo este _README_, estão sob [Licença MIT](./LICENSE).<br>
+Criado com ❤ por [Gabriel Barros](https://github.com/bielb2)
 
